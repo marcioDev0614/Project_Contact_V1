@@ -1,0 +1,60 @@
+﻿@model  ContatoModel
+
+@{
+    ViewData["Title"] = "Criar contato ";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+</div>
+
+<form asp-controller="Contato" asp-action="Criar" method="post">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome:</label>
+        <input type="text" asp-for="Nome" class="form-control">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" asp-for="Email" class="form-control">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <div class="mb-3">
+        <label for="data" class="form-label">Data de Nascimento:</label>
+        <input type="date" asp-for="DataNascimento" class="form-control">
+        
+    </div>
+    <div>
+        <div class="mb-3">
+            <label for="celular" class="form-label">Celular:</label>
+            <input type="text" asp-for="Celular" class="form-control">
+            @Html.ValidationMessageFor(x => x.Celular)
+        </div>
+        <div>
+            <div>
+                <label for="sexo">Sexo:</label><br />
+                <div class="radio-container">
+                    <input type="radio" asp-for="Sexo" id="sexoM" name="Sexo" value="Masculino" checked>
+                     @Html.ValidationMessageFor(x => x.Sexo)
+                    <label for="sexoM">Masculino</label><br />
+                </div>
+                <div class="radio-container">
+                    <input type="radio" asp-for="Sexo" id="sexoF" name="Sexo" value="Feminino">
+                    @Html.ValidationMessageFor(x => x.Sexo)
+                    <label for="sexoF">Feminino</label><br />
+                </div>
+                <div class="radio-container">
+                    <input type="radio" asp-for="Sexo" id="sexoO" name="Sexo" value="Outro">
+                    @Html.ValidationMessageFor(x => x.Sexo)
+                    <label for="sexoO">Outro</label><br />
+                </div>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+        <br />
+        <a class="btn btn-dark btn-block" asp-controller="Contato" asp-action="Index">Voltar</a>
+</form>
+
+
+
